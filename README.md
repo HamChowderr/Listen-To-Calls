@@ -38,9 +38,9 @@ This Node.js project allows you to initiate calls through a voice assistant API,
 
 Replace the following values in the `index.js` file:
 
-- **Assistant ID**: `'7cf23a21-f4ca-4695-9907-18b135fc2f2f'`
-- **Customer Phone Number**: `'+16803565600'`
-- **Phone Number ID**: `'ed9c50a3-ea74-4d45-b8b7-b8b52c8576a6'`
+- **Assistant ID**: `'AssistantUUID'`
+- **Customer Phone Number**: `'+13231234567'`
+- **Phone Number ID**: `'PhoneUUID'`
 
 These values represent your unique API identifiers and customer phone number. Be sure to replace them with your actual values if you are running this in your own environment.
 
@@ -83,25 +83,3 @@ voice-assistant-call-listener/
 
 - **WebSocket Connection Errors**: Ensure that the assistant is correctly initiated and the phone call is active before starting the WebSocket connection.
 - **API Key Issues**: Make sure your `.env` file is correctly configured and your `VAPI_API_KEY` is valid.
-
-### License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-```
-
----
-
-### Instructions for Using This Template:
-
-1. **Replace Placeholder Text**:
-   - Replace `your_api_key_here` in the `.env` section with a placeholder or description.
-   - Replace the **repository URL** in the clone command with your repository’s actual URL.
-   - Add any additional instructions or specific configurations related to your project.
-
-2. **Project Structure**:
-   - Ensure that the structure described reflects the actual structure of your project files.
-
-3. **Further Customization**:
-   - You can add more sections as needed, such as **Future Features**, **Contributing**, or **Contact Information**.
-
-This `README.md` will provide users with a clear understanding of your project, how to install it, and how to use it effectively. Let me know if you want to adjust any part of it!
