@@ -1,4 +1,4 @@
-# Voice Assistant Call Listener
+# Vapi-Live-Call-Control
 
 This Node.js project allows you to initiate calls through a voice assistant API, capture audio from live calls via WebSocket, save the audio as a WAV file, and inject custom messages into the ongoing call. This project is ideal for applications like call monitoring or voice assistants that handle customer support.
 
