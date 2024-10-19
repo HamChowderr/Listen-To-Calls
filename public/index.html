@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistant Response Interface</title>
+    <title>Monitor & Listen</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,11 +21,12 @@
         }
         .buttons {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             margin-top: 20px;
         }
         button {
-            margin: 0 10px;
+            margin: 10px;
             padding: 10px 20px;
             font-size: 18px;
             cursor: pointer;
@@ -41,13 +42,12 @@
 </head>
 <body>
 
-    <h1>Assistant Response Interface</h1>
-    <div class="buttons">
-        <button onclick="sendResponse('Hello! How can I assist you today?')">Send Greeting</button>
-        <button onclick="sendResponse('Goodbye!')">Send Goodbye</button>
-        <button onclick="sendResponse('What is your question?')">Ask Question</button>
+    <h1>Monitor & Listen</h1>
+    <div class="buttons" id="buttons-container">
+        <!-- Buttons will be dynamically added here -->
     </div>
 
+    <script src="buttons.js"></script>
     <script>
         // Function to send responses to the assistant
         function sendResponse(message) {
@@ -69,6 +69,21 @@
                 console.error('Error:', error);
             });
         }
+
+        // Dynamically generate buttons based on buttonsConfig from buttons.js
+        function createButtons() {
+            const buttonsContainer = document.getElementById('buttons-container');
+
+            buttonsConfig.forEach(button => {
+                const btn = document.createElement('button');
+                btn.innerText = button.text;
+                btn.onclick = () => sendResponse(button.message);
+                buttonsContainer.appendChild(btn);
+            });
+        }
+
+        // Call the function to generate buttons
+        createButtons();
     </script>
 
 </body>
