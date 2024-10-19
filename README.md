@@ -21,7 +21,7 @@ This Node.js project allows you to initiate calls through a voice assistant API,
 1. Clone the repository or download the project files.
    ```bash
    git clone https://github.com/HamChowderr/Vapi-Live-Call-Control
-   cd voice-assistant-call-listener
+   cd vapi-live-call-control
    ```
 
 2. Install the required Node.js packages:
