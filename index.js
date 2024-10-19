@@ -1,9 +1,19 @@
 // Import necessary modules
 const WebSocket = require('ws');
+const express = require('express');
+const bodyParser = require('body-parser');
 const axios = require('axios');
 const fs = require('fs');
 const readline = require('readline'); // For user input in the console
 require('dotenv').config(); // Load environment variables from .env file
+
+// Initialize Express app
+const app = express();
+const port = 3000; // Port for the web server
+
+// Middleware to serve static files and parse JSON
+app.use(express.static('public'));
+app.use(bodyParser.json());
 
 console.log('Starting the application...');
 
@@ -168,6 +178,35 @@ function attemptReconnect(listenUrl) {
     console.error('Max retries reached. Unable to reconnect.');
   }
 }
+
+// Handle POST request to send message to the assistant
+app.post('/send-message', async (req, res) => {
+    const message = req.body.message;
+    const controlUrl = 'your_control_url_here';  // Replace with the actual control URL
+
+    try {
+        // Send the message to the assistant via the control URL
+        await axios.post(controlUrl, {
+            type: 'say',
+            message: message
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        // Send a response back to the frontend
+        res.json({ success: true, message: "Message sent to assistant: " + message });
+    } catch (error) {
+        console.error('Error sending message:', error);
+        res.status(500).json({ success: false, error: 'Failed to send message.' });
+    }
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
 
 // Start the call process
 initiateCall();
